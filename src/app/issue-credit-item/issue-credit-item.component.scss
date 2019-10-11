@@ -1,0 +1,12 @@
+@import '../../styles.scss';
+.container-credit {
+  &-image {
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+  }
+  &-name {
+    color: $leaffy-green;
+  }
+}

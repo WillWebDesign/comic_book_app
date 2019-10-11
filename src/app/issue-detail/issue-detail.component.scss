@@ -1,0 +1,15 @@
+@import '../../styles.scss';
+  .container-issue {
+  &-image {
+    top: 9vh;
+    right: 0;
+    @media (max-width: 576px) {
+      top: 0;
+    }
+  }
+  &-title {
+    font-weight: 600;
+    border-bottom: 1px solid $gray-2;
+    text-transform: capitalize;
+  }
+}

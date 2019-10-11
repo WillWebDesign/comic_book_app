@@ -1,11 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { IssuesComponent } from './issues/issues.component';
+import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 
-
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: 'issues', pathMatch: 'full' },
+  {
+    path: 'issues',
+    component: IssuesComponent,
+  },
+  {
+    path: 'issue/:id',
+    component: IssueDetailComponent,
+  },
+  { path: '**', redirectTo: 'issues' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

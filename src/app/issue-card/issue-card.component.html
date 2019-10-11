@@ -1,0 +1,9 @@
+<div class="container-card row m-0" (click)="goToIssueDetail(issueData.id)">
+  <img class="container-card-image"
+       [src]="issueData.image.original_url"
+       [alt]="issueData.name">
+  <div class="col">
+    <h3 class="container-card-title m-0 mt-3 col d-block text-center">{{issueData.name}}<span *ngIf="issueData.name">:</span> {{issueData.volume.name}} #{{issueData.issue_number}}</h3>
+    <span class="container-card-date col mt-1 d-block text-center">{{issueData.date_added | date: 'MMMM dd,yyyy'}}</span>
+  </div>
+</div>

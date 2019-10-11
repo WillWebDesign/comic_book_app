@@ -1,0 +1,46 @@
+@import '../../styles.scss';
+
+.container-head {
+  border-bottom: 1px solid $gray-2;
+  border-top: 1px solid $gray-2;
+  &-title {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  &-button {
+    cursor: pointer;
+    color: $leaffy-green;
+    &.active {
+      color: $black;
+      cursor: unset;
+    }
+  }
+}
+
+cdk-virtual-scroll-viewport {
+  height: 80vh;
+
+  li {
+    list-style: none;
+    height: 100%;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+.container-body {
+  &-column {
+    float: left;
+  }
+
+  &-rowItem:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+.giphy-embed {
+  margin: 0 auto;
+  display: flex;
+}

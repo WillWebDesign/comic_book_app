@@ -1,0 +1,21 @@
+<div class="toast-container col-10 col-sm-6 col-md-4"
+     *ngIf="toast.active"
+     [ngClass]="toast.type">
+  <fa-icon *ngIf="toast.type !== 'undo'"
+           class="toast-container-icon"
+           [icon]="iconHandler(toast.type)"></fa-icon>
+  <span class="toast-container-message">{{toast.message}}</span>
+  <div [ngSwitch]="toast.type">
+    <div *ngSwitchCase="'undo'">
+      <strong class="toast-container-undo">
+        <a (click)="toast.handler(); close()">Deshacer</a>
+      </strong>
+    </div>
+    <div *ngSwitchDefault>
+      <fa-icon class="toast-container-close"
+               [icon]="faTimes"
+               (click)="close()"></fa-icon>
+    </div>
+  </div>
+
+</div>

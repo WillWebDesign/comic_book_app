@@ -1,0 +1,55 @@
+@import '../../styles.scss';
+.toast-container {
+  position: fixed;
+  top: 2em;
+  height: 5em;
+  border-radius: 5px;
+  background: $gray-2;
+  z-index: 5;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $cotton;
+  font-size: 0.7em;
+  &.undo {
+    background: $H2O;
+    top: unset;
+    bottom: 2em;
+    left: 5em;
+    transform: unset;
+    a{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  &.info {
+    background: $H2O;
+  }
+  &.success {
+    background: $leaffy-green;
+  }
+  &.error {
+    background: $cherry;
+  }
+  &-icon {
+    font-size: 2em;
+    // flex: 1 1 auto;
+    color: white;
+    margin-left: .5em;
+  }
+  &-message {
+    flex: 4 1 auto;
+    text-align: left;
+    padding: 0 0.5em;
+    font-size: 1.1em;
+    max-width: 300px;
+  }
+  &-close {
+    flex: 2 1 auto;
+    font-size: 1.5em;
+    text-align: right;
+  }
+}

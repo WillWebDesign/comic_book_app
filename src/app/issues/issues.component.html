@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row container-head">
+    <h2 class="container-head-title col m-0 pl-0 pr-0 pt-2 pb-2">
+      Lastest issues
+    </h2>
+    <div class="col-6 col-sm-3 pr-0 pt-1 container-head-buttons text-right">
+      <div [class.active]="layaut === 'list'"
+           class="container-head-button mr-3 d-inline-block"
+           (click)="layaut = 'list'">
+        <fa-icon [icon]="['fas', 'list']"></fa-icon>
+        List
+      </div>
+      <div [class.active]="layaut === 'grid'"
+           class="container-head-button d-inline-block"
+           (click)="layaut = 'grid'">
+        <fa-icon [icon]="['fas', 'th']"></fa-icon>
+        Grid
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5 container-body">
+    <ng-container *ngIf="infinite | async as issues">
+      <cdk-virtual-scroll-viewport class="col-12 container-body-rowItem"
+                                   itemSize="100"
+                                   minBufferPx="50"
+                                   (scrolledIndexChange)="nextBatch($event, (issues.length - 1))">
+        <div class="row col-12 p-0 m-0">
+          <li class="mt-2 mb-2 container-body-column"
+              [ngClass]="[layaut === 'grid' ? 'col-6 col-md-3' : 'col-12']"
+              *cdkVirtualFor="let issue of issues; let i = index">
+            <app-issue-card [issueData]="issue"></app-issue-card>
+            <div *ngIf="i+1 % 4 === 0"
+                 class="clearfix"></div>
+          </li>
+        </div>
+
+        <iframe *ngIf="theEnd"
+                src="https://giphy.com/embed/5bo7UYW69cYQZA4tOF"
+                width="480"
+                height="352"
+                frameBorder="0"
+                class="giphy-embed"
+                allowFullScreen></iframe>
+
+      </cdk-virtual-scroll-viewport>
+    </ng-container>
+  </div>
+</div>

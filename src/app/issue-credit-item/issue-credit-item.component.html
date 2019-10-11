@@ -1,0 +1,13 @@
+<div class="container-credit" *ngIf="credit">
+  <ng-container *ngIf="credit.image;else loggedOut">
+    <img class="container-credit-image mr-2"
+         [src]="credit.image.original_url"
+         [alt]="credit.name"
+         >
+    <ng-template #loggedOut>
+      <div class="container-credit-image"></div>
+    </ng-template>
+
+  </ng-container>
+  <span class="container-credit-name">{{credit.name}}</span>
+</div>
